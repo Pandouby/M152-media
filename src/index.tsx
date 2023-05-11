@@ -1,15 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./style.css";
+import Gallery from "./components/Gallery/Gallery";
+import Modal from "./components/Gallery/Modal";
+import reportWebVitals from "./reportWebVitals";
+import Video from "./components/Video/Video";
+import Container from "./components/Container";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
+
+const images = [
+  { src: "./images/IMG_0030.JPG", alt: "" },
+  { src: "./images/IMG_0039.JPG", alt: "" },
+  { src: "./images/IMG_0032.JPG", alt: "" },
+  { src: "./images/IMG_0034.JPG", alt: "" },
+  { src: "./images/IMG_0029.JPG", alt: "" },
+  { src: "./images/IMG_0038.JPG", alt: "" },
+  { src: "./images/lake.jpeg", alt: "" },
+  { src: "./images/lake.jpeg", alt: "" },
+  { src: "./images/IMG_0027.JPG", alt: "" },
+  { src: "./images/IMG_0031.JPG", alt: "" },
+];
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Container>
+      <Video videoScr="./videos/Timeline 6.mov" posterSrc={""}/>
+    </Container>
+
+    <Container>
+      <Gallery images={images} />
+    </Container>
+
+    
   </React.StrictMode>
 );
 
