@@ -1,4 +1,5 @@
 import { log } from "console";
+import { delay, motion } from "framer-motion";
 import React, { useCallback, useEffect, useState } from "react";
 
 interface ModalProps {
@@ -20,6 +21,12 @@ function Modal(props: ModalProps) {
     ? { display: "flex", opacity: 1}
     : { display: "none", opacity: 0};
 
+    /*
+    useEffect(() => {
+      loopSlideshow();
+    }, []);
+    */
+
   function prev() {
     if (imageIndex >= 1) {
       //setIndex(index - 1);
@@ -39,6 +46,16 @@ function Modal(props: ModalProps) {
       changeIndex(0);
     }
   }
+
+  /*
+  async function loopSlideshow() {
+    if (isOpen) {
+      next()
+      await delay(3000);
+      loopSlideshow()
+    }
+  }
+  */
 
   const handleKeyDown = (event: any) => {
     if (event.key === 'Escape') {

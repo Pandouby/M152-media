@@ -27,7 +27,7 @@ const images = [
 root.render(
   <React.StrictMode>
     <Container>
-      <Video videoScr="./videos/Timeline 6.mov" posterSrc={""}/>
+      <Video videoScr="./videos/Timeline 6.mov" posterSrc={'./images/IMG_0027.JPG'}/>
     </Container>
 
     <Container>

@@ -10,7 +10,7 @@ function Video(props: any) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start start", "end start"],
+        offset: ["center center", "end start"],
     });
 
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);

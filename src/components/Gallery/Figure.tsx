@@ -18,14 +18,15 @@ function Figure(props: FigureProp) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "end start"],
+        offset: ["start end", "end end"],
     });
 
-    const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-    const scale = useTransform(scrollYProgress, [0, 0.3], [50, 100]);
+    const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+    const scale = useTransform(scrollYProgress, [0, 1], [50, 100]);
     const scalePercentage = useTransform(scale, (s) => `${s}%`);
-    const blurValue = useTransform(scrollYProgress, [0, 0.3], [5, 0]);
+    const blurValue = useTransform(scrollYProgress, [0, 1], [5, 0]);
     const blur = useTransform(blurValue, (bv) => `blur(${bv}px)`);
+
 
 
     return (
