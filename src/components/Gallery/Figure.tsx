@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 interface Image {
     src: string;
@@ -14,12 +14,14 @@ interface FigureProp {
 
 function Figure(props: FigureProp) {
     const { image, index, openModal} = props;
-
+    
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start end", "end end"],
     });
+
+    const [className, setClassName] = useState("");
 
     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const scale = useTransform(scrollYProgress, [0, 1], [50, 100]);
@@ -27,10 +29,8 @@ function Figure(props: FigureProp) {
     const blurValue = useTransform(scrollYProgress, [0, 1], [5, 0]);
     const blur = useTransform(blurValue, (bv) => `blur(${bv}px)`);
 
-
-
     return (
-        <motion.figure onClick={openModal} ref={ref} style={{opacity, scale: scalePercentage, filter: blur}}>
+        <motion.figure className={className} onClick={openModal} ref={ref} style={{opacity, filter: blur}}>
             <img
                 className={'item' + index}
                 src={image.src}

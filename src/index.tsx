@@ -1,27 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style.css";
 import Gallery from "./components/Gallery/Gallery";
-import Modal from "./components/Gallery/Modal";
 import reportWebVitals from "./reportWebVitals";
 import Video from "./components/Video/Video";
 import Container from "./components/Container";
+import Animation from "./components/Animation/Animation"
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
 const images = [
-  { src: "./images/IMG_0030.JPG", alt: "" },
-  { src: "./images/IMG_0039.JPG", alt: "" },
-  { src: "./images/IMG_0032.JPG", alt: "" },
-  { src: "./images/IMG_0034.JPG", alt: "" },
-  { src: "./images/IMG_0029.JPG", alt: "" },
-  { src: "./images/IMG_0038.JPG", alt: "" },
-  { src: "./images/lake.jpeg", alt: "" },
-  { src: "./images/lake.jpeg", alt: "" },
-  { src: "./images/IMG_0027.JPG", alt: "" },
-  { src: "./images/IMG_0031.JPG", alt: "" },
+  { src: "./images/IMG_0030.JPG", alt: "White flower" },
+  { src: "./images/IMG_0039.JPG", alt: "Green moss" },
+  { src: "./images/IMG_0032.JPG", alt: "Dryed up flower" },
+  { src: "./images/IMG_0034.JPG", alt: "Dryed up flowers" },
+  { src: "./images/IMG_0029.JPG", alt: "Strain of hay" },
+  { src: "./images/IMG_0038.JPG", alt: "Bundle of dryed hay" },
+  { src: "./images/IMG_0037.JPG", alt: "Sunny path" },
+  { src: "./images/IMG_0039.JPG", alt: "Green moss" },
+  { src: "./images/IMG_0027.JPG", alt: "Flowers blooming" },
+  { src: "./images/IMG_0031.JPG", alt: "Macro flower" },
 ];
 
 root.render(
@@ -34,11 +34,10 @@ root.render(
       <Gallery images={images} />
     </Container>
 
-    
+    <Container>
+      <Animation />
+    </Container>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
